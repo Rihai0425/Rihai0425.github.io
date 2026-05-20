@@ -10,11 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Fix back/forward black screen (bfcache restore)
-  window.addEventListener('pageshow', (e) => {
-    if (e.persisted) {
-      document.querySelectorAll('.page-transition').forEach(el => el.remove());
-      document.body.style.opacity = '1';
-    }
+  window.addEventListener('pageshow', () => {
+    document.querySelectorAll('.page-transition').forEach(el => el.remove());
   });
 
   // Hero loaded animation
