@@ -9,6 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Fix back/forward black screen (bfcache restore)
+  window.addEventListener('pageshow', (e) => {
+    if (e.persisted) {
+      document.querySelectorAll('.page-transition').forEach(el => el.remove());
+      document.body.style.opacity = '1';
+    }
+  });
+
   // Hero loaded animation
   const hero = document.querySelector('.hero');
   if (hero) {
